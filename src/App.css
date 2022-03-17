@@ -34,8 +34,9 @@
 .text-color-standard{
   color: #D1CBCB !important;
 }
-
-.logo-color{
-  color:#D1CBCB 
-}
   /* End of Nav menu */
+
+  /* Cards */
+  .personalized-width{
+    width: 60%!important;
+  }

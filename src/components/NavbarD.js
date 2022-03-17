@@ -1,6 +1,6 @@
 import React from 'react';
-import {Navbar, Container, Nav, Button} from 'react-bootstrap';
-import CartIcon from './CartIcon';
+import {Navbar, Container, Nav} from 'react-bootstrap';
+import CartIcon from './icons/CartIcon';
 import Logo from './Logo';
 
 
@@ -19,9 +19,7 @@ const NavbarD = () => {
               <Nav.Link href="#link" className='fs-4 underline text-color-standard'>Galería</Nav.Link>
             </Nav>
           </Navbar.Collapse>
-          <Button variant="outline-secondary" className='border-0'>
-            <CartIcon />
-          </Button>
+           <CartIcon />
         </Container>
       </Navbar>
 )};
