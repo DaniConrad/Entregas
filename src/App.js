@@ -2,14 +2,7 @@ import './App.css';
 import NavbarD from './components/NavbarD.js';
 import RenderCards from './components/Logic.js';
 import {Container} from 'react-bootstrap';
-
-let stock = 0;
-const initial = 1;
-const onAdd = (count) =>{
-  console.log(`Se agregan ${count} al carrito`);
-}
-
-
+import ShowPosts from './components/Stock';
 
 function App() {
   return (
@@ -18,13 +11,7 @@ function App() {
         <NavbarD />
       </header>
       <section className='m-3'>
-        <Container >
-          <RenderCards 
-          stock={stock}
-          initial={initial}
-          onAdd={onAdd}
-          />
-        </Container>
+         <ShowPosts />
       </section>
     </div>
   );
