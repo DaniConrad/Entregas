@@ -3,13 +3,13 @@ import {Card, Button, Container} from 'react-bootstrap'
 import CartPlus from "./icons/CartPlus";
 import CartDash from "./icons/CartDash";
 
-const RenderCards = ({stock, initial, onAdd}) =>{
+const RenderCards = ({stock, initial, onAdd, name, id}) =>{
     // Quantity to add to cart
     const [Count, SetItem] = useState(initial);
 
     
     const quantItem = (prop) =>{
-        if (Count === 0 && (prop == '-') && stock === 0) {
+        if (Count === 0 && (prop === '-') && stock === 0) {
             return;
         }
         if (prop === '+') {
@@ -40,15 +40,15 @@ const RenderCards = ({stock, initial, onAdd}) =>{
     
 
     return(
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem' }} bg="dark">
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title className="text-light text-center">{name}</Card.Title>
             <Container className="mb-2 d-flex border justify-content-between personalized-width">
                 <Button onClick={()=>quantItem('+')} className='bg-transparent border-0'>
                     <CartPlus />
                 </Button>
-                <Card.Text className="m-2">
+                <Card.Text className="m-2 text-light">
                  {Count}
                 </Card.Text>
                 <Button onClick={()=>quantItem('-')} className='bg-transparent border-0'>
@@ -56,8 +56,8 @@ const RenderCards = ({stock, initial, onAdd}) =>{
                 </Button>
             </Container>
             <Container className="d-flex justify-content-center flex-column">
-                <Button onClick={()=>addCart(Count)} variant="primary" disabled={btnOn}>Agregar al carrito</Button>
-                <Card.Text className="d-flex justify-content-center">
+                <Button onClick={()=>addCart(Count)} variant="primary" disabled={btnOn} id={id}>Agregar al carrito</Button>
+                <Card.Text className="d-flex justify-content-center text-light">
                  Stock disponible: {stock}
                 </Card.Text>
             </Container>
