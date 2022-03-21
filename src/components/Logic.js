@@ -3,7 +3,7 @@ import {Card, Button, Container} from 'react-bootstrap'
 import CartPlus from "./icons/CartPlus";
 import CartDash from "./icons/CartDash";
 
-const RenderCards = ({stock, initial, onAdd, name, id}) =>{
+const RenderCards = ({stock, initial, onAdd, name, id, img, description}) =>{
     // Quantity to add to cart
     const [Count, SetItem] = useState(initial);
 
@@ -40,8 +40,8 @@ const RenderCards = ({stock, initial, onAdd, name, id}) =>{
     
 
     return(
-    <Card style={{ width: '18rem' }} bg="dark">
-        <Card.Img variant="top" src="holder.js/100px180" />
+    <Card style={{ width: '18rem' }} bg="dark" className="d-flex align-items-center">
+        <Card.Img style={{ width: '50%', height:'50%' }} variant="top" alt={description} src= {img} className="mt-3"/>
         <Card.Body>
             <Card.Title className="text-light text-center">{name}</Card.Title>
             <Container className="mb-2 d-flex border justify-content-between personalized-width">

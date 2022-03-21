@@ -10,11 +10,11 @@ const onAdd = (count) =>{
 
 const stock = [
     {   id:1, 
-        name:"Botellón", 
-        description:"Capacidad de 2L con tapa a rosca.", 
+        name:"Growler", 
+        description:"Capacidad de 1.9L con tapa a rosca.", 
         price: 1500, 
         stock: 15,
-        img:"",
+        img:"https://i.ibb.co/bBDKdNv/growler.webp",
         initial: 1,
     },
     {   id:2, 
@@ -22,7 +22,7 @@ const stock = [
         description:"Cristalería oficial de la marca con logo de 500ml", 
         price: 500, 
         stock: 40,
-        img:"", 
+        img:"https://i.ibb.co/Bg4nbmB/glas.webp", 
         initial: 1,
     },
     {   id:3, 
@@ -30,7 +30,7 @@ const stock = [
         description:"Presentación de 750ml.", 
         price: 200, 
         stock: 50,
-        img:"",
+        img:"https://i.ibb.co/yPBG6YJ/beer.webp",
         initial: 1,
     },
     {   id:4, 
@@ -38,7 +38,7 @@ const stock = [
         description:"Variedad a gusto de 20L, puedes solicitar el alquier de la chopera.", 
         price: 5000, 
         stock: 4,
-        img:"",
+        img:"https://i.ibb.co/YD1vZfm/barrel.webp",
         initial: 1,
     }
 ];
@@ -68,6 +68,8 @@ const ShowPosts = () => {
                                     name={prod.name}
                                     stock={prod.stock}
                                     initial={prod.initial}
+                                    img={prod.img}
+                                    description={prod.description}
                                     onAdd={onAdd}
                                   />
                                 )));
