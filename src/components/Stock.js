@@ -50,7 +50,7 @@ const getStock = () =>{
         }
         setTimeout(() => {
         resolve(stock);
-    }, 1500)
+    }, 2000)
     })
 }
 
