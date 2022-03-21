@@ -41,10 +41,10 @@ const RenderCards = ({stock, initial, onAdd, name, id, img, description}) =>{
 
     return(
     <Card style={{ width: '18rem' }} bg="dark" className="d-flex align-items-center">
-        <Card.Img style={{ width: '50%', height:'50%' }} variant="top" alt={description} src= {img} className="mt-3"/>
+        <Card.Img style={{ width: '55%', height:'55%' }} variant="top" alt={description} src= {img} className="mt-4"/>
         <Card.Body>
             <Card.Title className="text-light text-center">{name}</Card.Title>
-            <Container className="mb-2 d-flex border justify-content-between personalized-width">
+            <Container className="mb-2 d-flex border justify-content-center personalized-width">
                 <Button onClick={()=>quantItem('+')} className='bg-transparent border-0'>
                     <CartPlus />
                 </Button>
