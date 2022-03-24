@@ -1,8 +1,7 @@
 import './App.css';
-import NavbarD from './components/NavbarD.js';
-import RenderCards from './components/Logic.js';
+import NavbarD from './components/NavbarD';
 import {Container} from 'react-bootstrap';
-import ShowPosts from './components/Stock';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
@@ -11,7 +10,7 @@ function App() {
         <NavbarD />
       </header>
       <section className='m-3'>
-         <ShowPosts />
+         <ItemListContainer />
       </section>
     </div>
   );

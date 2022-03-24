@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 import CartIcon from './icons/CartIcon';
-import Logo from './Logo';
+import Logo from './icons/Logo';
 
 
 const NavbarD = () => {
@@ -24,6 +24,8 @@ const NavbarD = () => {
       </Navbar>
 )};
     
+// le pasan un nav.link as={Link} para los link de router
+
 
 
 export default NavbarD;

@@ -1,12 +1,6 @@
 import React, {useState, useEffect} from "react";
-import RenderCards from "./Logic";
-import {Container} from 'react-bootstrap';
-
-
-
-const onAdd = (count) =>{
-    console.log(`Se agregan ${count} al carrito`);
-  }
+import {Container, Spinner} from 'react-bootstrap'
+import ItemList from "./ItemList";
 
 const stock = [
     {   id:1, 
@@ -54,37 +48,36 @@ const getStock = () =>{
     })
 }
 
-const ShowPosts = () => {
-    const [items, setPosts] = useState([]);
+const ItemListContainer = () => {
+    const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
     
     useEffect( () => { 
         async function fetchData() {
             try {
                 const res = await getStock(); 
-                setPosts(res.map((prod, i) => (
-                                  <RenderCards 
-                                    key={i}
-                                    id={prod.id}
-                                    name={prod.name}
-                                    stock={prod.stock}
-                                    initial={prod.initial}
-                                    img={prod.img}
-                                    description={prod.description}
-                                    onAdd={onAdd}
-                                  />
-                                )));
+                setItems(res);
+                setLoading(false);
+                
             } catch (err) {
                 console.error(err.message);
             }
         }
         fetchData();
     }, [] );
-    return <Container className="d-flex justify-content-between">
-                {items}
-            </Container>
+    return(
+    <div className="d-flex flex-column">
+        <Container className="d-flex justify-content-center">
+            {loading ? <Spinner animation="border" variant="light" /> : ''}
+        </Container>
+    
+    <ItemList items={items}/>
+    </div>
+        
+    )
 }
 
-export default ShowPosts;
+export default ItemListContainer;
   
   
 

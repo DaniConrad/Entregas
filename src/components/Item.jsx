@@ -3,24 +3,23 @@ import {Card, Button, Container} from 'react-bootstrap'
 import CartPlus from "./icons/CartPlus";
 import CartDash from "./icons/CartDash";
 
-const RenderCards = ({stock, initial, onAdd, name, id, img, description}) =>{
+const Item = ({onAdd, product}) =>{
     // Quantity to add to cart
-    const [Count, SetItem] = useState(initial);
-
+    const [Count, SetItem] = useState(product.initial);
     
-    const quantItem = (prop) =>{
-        if (Count === 0 && (prop === '-') && stock === 0) {
-            return;
-        }
+    const plusItem = (prop) =>{
         if (prop === '+') {
-            if (Count === stock || stock === 0) {
+            if (Count === product.stock || product.stock === 0) {
                 return;
             }
             SetItem(Count +1);
+        }
+    }
+
+    const dashItem = (prop) =>{
+        if (Count === product.initial || Count === 0 && (prop === '-') && product.stock === 0) {
+            return;
         }else{
-            if (Count === initial) {
-                return;
-            }
             SetItem(Count -1);
             }
         }
@@ -28,10 +27,13 @@ const RenderCards = ({stock, initial, onAdd, name, id, img, description}) =>{
     //Disable and enable addCart button with the stock disponibility
     const [btnOn, btnDisabled] = useState(false)
     useEffect( () =>{
-       if (stock === 0) {
+       if (product.stock === 0) {
             btnDisabled(true)
+        }else{
+            btnDisabled(false)
         }
-        })
+        }
+    )
 
     // Cart
     function addCart (Count){
@@ -41,29 +43,29 @@ const RenderCards = ({stock, initial, onAdd, name, id, img, description}) =>{
 
     return(
     <Card style={{ width: '18rem' }} bg="dark" className="d-flex align-items-center">
-        <Card.Img style={{ width: '55%', height:'55%' }} variant="top" alt={description} src= {img} className="mt-4"/>
+        <Card.Img style={{ width: '55%', height:'55%' }} variant="top" alt={product.name} src= {product.img} className="mt-4"/>
         <Card.Body>
-            <Card.Title className="text-light text-center">{name}</Card.Title>
+            <Card.Title className="text-light text-center">{product.name}</Card.Title>
             <Container className="mb-2 d-flex border justify-content-center personalized-width">
-                <Button onClick={()=>quantItem('+')} className='bg-transparent border-0'>
+                <Button onClick={()=>plusItem('+')} className='bg-transparent border-0'>
                     <CartPlus />
                 </Button>
                 <Card.Text className="m-2 text-light">
                  {Count}
                 </Card.Text>
-                <Button onClick={()=>quantItem('-')} className='bg-transparent border-0'>
+                <Button onClick={()=>dashItem('-')} className='bg-transparent border-0'>
                     <CartDash />
                 </Button>
             </Container>
             <Container className="d-flex justify-content-center flex-column">
-                <Button onClick={()=>addCart(Count)} variant="primary" disabled={btnOn} id={id}>Agregar al carrito</Button>
+                <Button onClick={()=>addCart(Count)} variant="primary" disabled={btnOn} id={product.id}>Ver detalles</Button>
                 <Card.Text className="d-flex justify-content-center text-light">
-                 Stock disponible: {stock}
+                 Stock disponible: {product.stock}
                 </Card.Text>
             </Container>
         </Card.Body>
     </Card>
     )}
 
-export default RenderCards;
+export default Item;
 
