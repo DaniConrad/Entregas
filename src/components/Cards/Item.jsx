@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {Card, Button, Container} from 'react-bootstrap'
-import CartPlus from "./icons/CartPlus";
-import CartDash from "./icons/CartDash";
+import CartPlus from "../icons/CartPlus";
+import CartDash from "../icons/CartDash";
 
 const Item = ({onAdd, product}) =>{
     // Quantity to add to cart
@@ -17,7 +17,7 @@ const Item = ({onAdd, product}) =>{
     }
 
     const dashItem = (prop) =>{
-        if (Count === product.initial || Count === 0 && (prop === '-') && product.stock === 0) {
+        if (Count === product.initial || (Count === 0 && (prop === '-') && product.stock === 0)) {
             return;
         }else{
             SetItem(Count -1);
@@ -32,8 +32,7 @@ const Item = ({onAdd, product}) =>{
         }else{
             btnDisabled(false)
         }
-        }
-    )
+        }, [product.stock])
 
     // Cart
     function addCart (Count){

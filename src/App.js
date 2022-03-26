@@ -1,7 +1,7 @@
 import './App.css';
 import NavbarD from './components/NavbarD';
-import {Container} from 'react-bootstrap';
-import ItemListContainer from './components/ItemListContainer';
+import ItemListContainer from './components/Cards/ItemListContainer';
+import ItemDetailContainer from './components/Detail/ItemDetailContainer';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <section className='m-3'>
          <ItemListContainer />
       </section>
+      <ItemDetailContainer />
     </div>
   );
 }

@@ -1,0 +1,31 @@
+
+  /* Products Detail */
+  .detail-img-container{
+    background-color: #CF6931;
+    
+  }
+.detail-img{
+    width: 45%;
+  }
+  
+  
+.detail-text-container{
+    background-color: #E8E7DE;
+    margin-top: 5rem;
+  }
+  
+.detail-btn{
+    background-color: #CF6931 !important;
+    border-color: #D5CCCB !important;
+  }
+.detail-btn:hover{
+  background-color: #D25612 !important;
+}
+  
+  @media screen and (max-width: 990px){
+    .detail-text-container{
+        margin: 1rem 5rem 0 5rem;
+    }
+  }
+  
+  /* End of Products Detail */
