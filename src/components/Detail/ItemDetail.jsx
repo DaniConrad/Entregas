@@ -22,9 +22,9 @@ export const ItemDetail = ({productDetail}) => {
                     <img src={img} alt={name} title={name} className="detail-img"/>
                 </div>
             </div>
-            <div class="col-12 col-lg-6">
-                <div class="detail-text-container d-flex flex-column align-items-center shadow ">
-                    <h2 class="detail-price mt-3 fs-1">
+            <div className="col-12 col-lg-6">
+                <div className="detail-text-container d-flex flex-column align-items-center shadow ">
+                    <h2 className="detail-price mt-3 fs-1">
                         {price}
                     </h2>
                     <h3 className="detail-title fs-2">
