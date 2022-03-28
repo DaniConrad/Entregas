@@ -7,22 +7,24 @@ import Logo from './icons/Logo';
 
 const NavbarD = () => {
     return( 
-    <Navbar className='nav-back-color' expand="lg">
-        <Container>
-          <Navbar.Brand as={Link} to="/">
-             <Logo />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className='flex-grow-0'>
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="category/beer" className='fs-4 underline text-color-standard'>Productos</Nav.Link>
-              <Nav.Link as={Link} to="category/crystal" className='fs-4 underline text-color-standard'>Servicios</Nav.Link>
-              <Nav.Link as={Link} to="/contact" className='fs-4 underline text-color-standard'>Contacto</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-           <CartIcon />
-        </Container>
-      </Navbar>
+      <header className="App-header">
+          <Navbar className='nav-back-color' expand="lg">
+              <Container>
+                <Navbar.Brand as={Link} to="/">
+                  <Logo />
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav" className='flex-grow-0'>
+                  <Nav className="me-auto">
+                    <Nav.Link as={Link} to="category/beer" className='fs-4 underline text-color-standard'>Productos</Nav.Link>
+                    <Nav.Link as={Link} to="category/crystal" className='fs-4 underline text-color-standard'>Servicios</Nav.Link>
+                    <Nav.Link as={Link} to="/contact" className='fs-4 underline text-color-standard'>Contacto</Nav.Link>
+                  </Nav>
+                </Navbar.Collapse>
+                <CartIcon />
+              </Container>
+            </Navbar>
+      </header>
 )};
     
 // le pasan un nav.link as={Link} para los link de router

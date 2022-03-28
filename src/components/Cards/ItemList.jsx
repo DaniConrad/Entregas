@@ -7,7 +7,7 @@ import Item from './Item'
   }
 
   return (
-      <Container className='d-flex justify-content-between'>
+      <Container className='d-flex justify-content-between my-3'>
         {items.map((product) => <Item onAdd={onAdd} product={product} key={product.id}/>)}
       </Container>
   )
