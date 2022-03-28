@@ -4,7 +4,6 @@ import Item from './Item'
 
  const ItemList = ({items}) => {
   const onAdd = (count) =>{
-    console.log(`Se agregan ${count} al carrito`);
   }
 
   return (

@@ -6,6 +6,7 @@ const stock = [
         stock: 15,
         img:"https://i.ibb.co/bBDKdNv/growler.webp",
         initial: 1,
+        category: 'crystal',
     },
     {   id:"02", 
         name:"Vaso Perzonalizado", 
@@ -14,6 +15,7 @@ const stock = [
         stock: 40,
         img:"https://i.ibb.co/Bg4nbmB/glas.webp", 
         initial: 1,
+        category: 'crystal',
     },
     {   id:"03", 
         name:"Cerveza embotellada", 
@@ -22,6 +24,7 @@ const stock = [
         stock: 50,
         img:"https://i.ibb.co/yPBG6YJ/beer.webp",
         initial: 1,
+        category: 'beer',
     },
     {   id:"04", 
         name:"Barril", 
@@ -30,6 +33,7 @@ const stock = [
         stock: 4,
         img:"https://i.ibb.co/YD1vZfm/barrel.webp",
         initial: 1,
+        category: 'beer',
     }
 ];
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {Card, Button, Container} from 'react-bootstrap'
+import { Card, Button, Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import CartPlus from "../icons/CartPlus";
 import CartDash from "../icons/CartDash";
 
@@ -57,7 +58,7 @@ const Item = ({onAdd, product}) =>{
                 </Button>
             </Container>
             <Container className="d-flex justify-content-center flex-column">
-                <Button onClick={()=>addCart(Count)} variant="primary" disabled={btnOn} id={product.id}>Ver detalles</Button>
+                <Link to={`/detail/${product.id}`}><Button onClick={()=>addCart(Count)} variant="primary" disabled={btnOn} id={product.id}>Ver detalles</Button></Link>
                 <Card.Text className="d-flex justify-content-center text-light">
                  Stock disponible: {product.stock}
                 </Card.Text>
