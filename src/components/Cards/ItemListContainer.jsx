@@ -4,6 +4,7 @@ import ItemList from "./ItemList";
 import { getStock } from '../mocks/Api'
 import { useParams } from "react-router-dom";
 
+
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -30,7 +31,7 @@ const ItemListContainer = () => {
         <Container className="d-flex justify-content-center">
             {loading ? <Spinner animation="border" variant="light" /> : ''}
         </Container>
-    
+
     <ItemList items={items}/>
     </div>
         

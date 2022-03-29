@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import '../../styles/detailStyle.css'
+import '../../App.css'
 
 export const ItemDetail = ({productDetail}) => {
 
@@ -11,7 +11,6 @@ export const ItemDetail = ({productDetail}) => {
     const handleNavigate = () =>{
         navigate(-1)
     }
-
 
 
   return (
@@ -38,7 +37,7 @@ export const ItemDetail = ({productDetail}) => {
                 </div>
             </div>
         </div>
-        <button className='btn btn-secondary' onClick={handleNavigate}>Volver</button>
+        <button className='btn btn-secondary m-3' onClick={handleNavigate}>Volver</button>
 
     </div>
   )
