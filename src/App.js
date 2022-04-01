@@ -19,15 +19,14 @@ function App() {
               <Route path='/' element={<ItemListContainer />}  />
               <Route path='/products' element={<ItemListContainer />} />
               <Route path='/category/:categoryId' element={<ItemListContainer />} />
-             <Route path='/detail/:itemId' element={ <ItemDetailContainer/> } />
+              <Route path='/detail/:itemId' element={ <ItemDetailContainer/> } />
 
-           <Route path='*' element={ <Error404 /> } />
+              <Route path='*' element={ <Error404 /> } />
              </Routes>
-             </div>
+        </div>
              <Footer />
 
           </BrowserRouter>
-      
       
     </div>
     

@@ -5,7 +5,6 @@ const stock = [
         price: "$1500", 
         stock: 15,
         img:"https://i.ibb.co/bBDKdNv/growler.webp",
-        initial: 1,
         category: 'crystal',
     },
     {   id:"02", 
@@ -14,7 +13,6 @@ const stock = [
         price: "$500", 
         stock: 40,
         img:"https://i.ibb.co/Bg4nbmB/glas.webp", 
-        initial: 1,
         category: 'crystal',
     },
     {   id:"03", 
@@ -23,7 +21,6 @@ const stock = [
         price: "$200", 
         stock: 50,
         img:"https://i.ibb.co/yPBG6YJ/beer.webp",
-        initial: 1,
         category: 'beer',
     },
     {   id:"04", 
@@ -32,7 +29,6 @@ const stock = [
         price: "$5000", 
         stock: 4,
         img:"https://i.ibb.co/YD1vZfm/barrel.webp",
-        initial: 1,
         category: 'beer',
     }
 ];

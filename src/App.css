@@ -44,7 +44,8 @@
     /* Products Detail */
     .detail-img-container{
       background-color: #CF6931;
-      
+      width: 32rem;
+      height: 28rem;
     }
   .detail-img{
       width: 45%;
@@ -59,6 +60,7 @@
   .detail-btn{
       background-color: #CF6931 !important;
       border-color: #D5CCCB !important;
+      width: 10rem;
     }
   .detail-btn:hover{
     background-color: #D25612 !important;
