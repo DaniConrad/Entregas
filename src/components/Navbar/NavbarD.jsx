@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import CartIcon from '../icons/CartIcon';
+import CartIcon from '../CartWidget/CartIcon';
 import Logo from '../icons/Logo';
 
 

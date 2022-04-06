@@ -10,8 +10,8 @@ const Filter = () => {
         <h2 className='d-flex justify-content-center text-light text-color-standard'>Filtros</h2>
         <Container className='d-flex justify-content-center'>
             <Link to="/products"><Button  className='mx-1 '>Productos</Button></Link>
-            <Link to="category/crystal"><Button  className='mx-1 '>Cristalería</Button></Link>
-            <Link to="category/beer"><Button  className='mx-1 '>Cervezas</Button></Link>
+            <Link to="/category/crystal"><Button  className='mx-1 '>Cristalería</Button></Link>
+            <Link to="/category/beer"><Button  className='mx-1 '>Cervezas</Button></Link>
         </Container>
 </div>
     </Container>

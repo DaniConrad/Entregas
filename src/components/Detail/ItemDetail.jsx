@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import '../../App.css'
 import { viewAlert } from '../helpers/Alerts/AddedCartAlert';
 import { ItemCount } from '../Cards/ItemCount';
+import { CartContext } from '../../Context/CartContext';
 
 export const ItemDetail = ({productDetail}) => {
 
+    const { addItem, isInCart } = useContext(CartContext)
     const {name, description, img, price, stock, id} = productDetail;
 
     const navigate = useNavigate()
@@ -23,10 +25,11 @@ export const ItemDetail = ({productDetail}) => {
             img,
             price,
             id,
-            Quantity
+            Quantity,
+            stock,
         }
         viewAlert();
-        console.log(itemToAdd);
+        addItem(itemToAdd)
 
     }
 
@@ -42,22 +45,27 @@ export const ItemDetail = ({productDetail}) => {
             <div className="col-12 col-lg-6">
                 <div className="detail-text-container d-flex flex-column align-items-center shadow ">
                     <h2 className="detail-price mt-3 fs-1">
-                        {price}
+                        $ {price}
                     </h2>
                     <h3 className="detail-title fs-2">
                         {name}
                     </h3>
                     <p className="detail-description mx-3 fs-5">
                         {description}
-                    </p>
-                    <ItemCount 
-                        stock={stock}
-                        id={id}
-                        Quantity={Quantity}
-                        SetQuantity={SetQuantity}
-                        onAdd={addItemCart}
-
-                    />
+                    </p>    
+                    {
+                       isInCart(id) ? <Link to='/cart'>
+                                        <button className="detail-btn btn text-light mt-1">Ir al Carrito</button>
+                                     </Link>
+                                     : <ItemCount 
+                                            stock={stock}
+                                            id={id}
+                                            Quantity={Quantity}
+                                            SetQuantity={SetQuantity}
+                                            onAdd={addItemCart}
+                                        />
+                    }
+                    
                     <p className='mt-1'>Disponible: {stock}</p>
                 </div>
             </div>

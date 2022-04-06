@@ -34,8 +34,8 @@ export const ItemCount = ({stock, id, Quantity, SetQuantity, onAdd}) => {
                      btnDisabled(false)
              }
         }, [stock])
-        
 
+        //CAMBIAR EL DISABLED POR UN CONDICIONAL && 
 
   return (
     <Container className="d-flex align-items-center flex-column personalized-width">
