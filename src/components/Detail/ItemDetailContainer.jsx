@@ -2,7 +2,6 @@ import React, {useEffect, useState}from 'react'
 import { Spinner } from 'react-bootstrap'
 import { useParams } from "react-router-dom";
 import { ItemDetail } from './ItemDetail';
-import { getStock } from '../mocks/Api'
 import { db } from '../firebase/config';
 import { doc, getDoc } from 'firebase/firestore';
 

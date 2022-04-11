@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Container, Spinner} from 'react-bootstrap'
 import ItemList from "./ItemList";
-import { getStock } from '../mocks/Api'
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore"; 
 import { db } from '../firebase/config'
