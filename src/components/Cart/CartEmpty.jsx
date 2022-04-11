@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import {  useNavigate } from 'react-router-dom';
-import { Container, Button } from 'react-bootstrap';
-import { CartContext } from '../../Context/CartContext'
-import { BsFillTrashFill, BsFillDashCircleFill, BsFillPlusCircleFill } from 'react-icons/bs'
+import { Container,} from 'react-bootstrap';
+import { BsCartX } from 'react-icons/bs'
 import '../../App.css'
 
 export const CartEmpty = () => {
@@ -15,7 +14,13 @@ export const CartEmpty = () => {
     
   return (
     <Container>
-        <h2 className='text-light'>No hay nada en el carrito</h2>
+      <div className='d-flex align-items-center flex-column'>
+      <BsCartX
+        size={'10rem'}
+        className="my-2 cart-color"
+      />
+        <h2 className='text-color-standard'>No hay nada en el carrito</h2>
+        </div>
         <hr className='text-light'/>
         <button className='btn btn-secondary m-3'onClick={handleNavigate}>Volver</button>
     </Container>
