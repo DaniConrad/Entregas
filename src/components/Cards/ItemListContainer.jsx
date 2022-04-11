@@ -3,6 +3,8 @@ import {Container, Spinner} from 'react-bootstrap'
 import ItemList from "./ItemList";
 import { getStock } from '../mocks/Api'
 import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore"; 
+import { db } from '../firebase/config'
 
 
 const ItemListContainer = () => {
@@ -13,17 +15,16 @@ const ItemListContainer = () => {
     
     useEffect( () => { 
         setLoading(true)
-        getStock
-        .then((res) => {
-            if (categoryId) {
-                setItems( res.filter( (prod) => prod.category === categoryId ) )
-            }else{
-                setItems( res )
-            }
-        })
-        
-        .catch((err) => console.error(err.message))
-        .finally(() => setLoading(false))
+        const productsRef = collection(db, 'products')
+        const q = categoryId ? query(productsRef, where('category', '==', categoryId)) : productsRef
+        getDocs(q)
+            .then (resp =>{
+                const products = resp.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+                setItems(products)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
     }, [categoryId] );
 
     return(

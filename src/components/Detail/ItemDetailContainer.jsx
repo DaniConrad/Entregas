@@ -3,6 +3,9 @@ import { Spinner } from 'react-bootstrap'
 import { useParams } from "react-router-dom";
 import { ItemDetail } from './ItemDetail';
 import { getStock } from '../mocks/Api'
+import { db } from '../firebase/config';
+import { doc, getDoc } from 'firebase/firestore';
+
 
 const ItemDetailContainer = () => {
 
@@ -13,11 +16,14 @@ const ItemDetailContainer = () => {
     
     useEffect(() => {
       setLoading(true)
-      getStock
-      .then((res) => setProductDetail(res.find((prod) => prod.id === itemId)))
-      .catch((err) => console.error(err.message))
-      .finally(() => setLoading(false))
     
+      const docRef = doc(db, 'products', itemId)
+      getDoc(docRef)
+          .then (doc => {
+            setProductDetail({id: doc.id, ...doc.data()})
+          })
+          .finally(() => setLoading(false))
+
     }, [itemId])
     
   return (
