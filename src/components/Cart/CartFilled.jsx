@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import {  useNavigate } from 'react-router-dom';
+import {  useNavigate, Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 import { CartContext } from '../../Context/CartContext'
 import { BsFillTrashFill, BsFillDashCircleFill, BsFillPlusCircleFill } from 'react-icons/bs'
@@ -56,9 +56,9 @@ export const CartFilled = () => {
            }
         <h2 className='mb-2 text-light'>Total: $ {totalCart()}</h2>
             <div className='d-flex'>
-               <button className='btn btn-buy-cart  text-light mx-2'>
+               <Link to='/checkout'><button className='btn btn-buy-cart  text-light mx-2'>
                Terminar mi Compra
-                 </button>
+                 </button></Link>
                <button onClick={()=>emptyCart()} className='btn btn-empty-cart text-light mx-2'>
                  Vaciar carrito
                   </button>

@@ -9,7 +9,7 @@ export const LimitStock = (stock) => {
       })
 
       Toast.fire({
-        icon: 'error',
+        icon: 'warning',
         title: `El Stock disponible es ${stock}`
       })
 

@@ -98,3 +98,40 @@
 
 
   /* End of cart view  */
+
+
+  /* Checkout form */
+  .standard-form{
+    width: 50% !important;
+  }
+
+  /* End of Checkout form */
+
+  /* Checkout order window */
+  @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
+
+
+  .checkout-order{
+      border-radius: 15px;
+      background-color: rgba(128, 128, 128, 0.336);
+      font-family: "Tajawal", Arial;
+      width: 40rem;
+
+  }
+  
+  .checkout-order-img{
+      position: relative;
+      top: 30px;
+      right: 30px;
+      width: 100%;
+  }
+
+  @media screen and (max-width: 770px) {
+    .checkout-order-img{
+        position: unset;
+        width: 35%;
+    }
+}
+  
+  
+  /* End Checkout order window */
