@@ -1,15 +1,19 @@
 import { useContext, useState } from 'react'
 import { CartContext } from '../Context/CartContext'
-import { db } from '../components/firebase/config'
+import { db } from '../firebase/config'
 import { addDoc, collection, documentId, getDocs, query, Timestamp, where, writeBatch } from 'firebase/firestore'
 import { FormFail } from '../components/helpers/Alerts/FormFail';
 import { CheckoutFail } from '../components/helpers/CheckoutFail';
+import { useAuth } from '../Context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export const useForm = (initialForm) => {
 
   const [values, setValues] = useState(initialForm)
   const [orderId, setOrderId] = useState(null)
   const {cart, totalCart, emptyCart} = useContext(CartContext)
+  const { login } = useAuth()
+  const navigate = useNavigate()
 
   const handleInputChange = (e) =>{
     setValues({
@@ -17,6 +21,7 @@ export const useForm = (initialForm) => {
     })
   }
 
+  
   const handleValidate = (e) =>{
     e.preventDefault()
     if (values.name === '' || values.email  === '' || values.tel  === '') {
@@ -26,6 +31,19 @@ export const useForm = (initialForm) => {
     }
   }
 
+  const handleValidateLogin = async (e) =>{
+    e.preventDefault()
+    if ( values.email  === '' || values.password  === '') {
+        FormFail()
+    }else{
+      try {
+        await login(values.email, values.password)
+        navigate('/panelmanager')
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+  }
 
   const handleSubmit = async () =>{
       const order = {
@@ -73,5 +91,6 @@ export const useForm = (initialForm) => {
     orderId,
     handleInputChange,
     handleValidate,
+    handleValidateLogin,
   };
 }; 

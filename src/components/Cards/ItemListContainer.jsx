@@ -3,7 +3,7 @@ import {Container, Spinner} from 'react-bootstrap'
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore"; 
-import { db } from '../firebase/config'
+import { db } from '../../firebase/config'
 
 
 const ItemListContainer = () => {
