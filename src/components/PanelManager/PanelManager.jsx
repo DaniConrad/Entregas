@@ -1,12 +1,10 @@
-import React from 'react'
-import { useAuth } from '../../Context/AuthContext'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../Context/AuthContext'
+import { StockManager } from './StockManager';
 
 const PanelManager = () => {
 
-  const { user, logout, loading } = useAuth()
-
-  console.log(user);
-
+  const { user, logout, loading } = useContext(AuthContext)
   const handleLogout = async() =>{
     await logout()
   }
@@ -19,6 +17,7 @@ const PanelManager = () => {
     <div>
        <h2>Hola {user.email}</h2> 
        <button onClick={handleLogout}>Logout</button>
+       <StockManager />
     </div>
   )
 }

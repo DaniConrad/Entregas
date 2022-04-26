@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Navigate } from 'react-router-dom'
-import { useAuth } from '../../Context/AuthContext'
+import { AuthContext } from '../../Context/AuthContext'
 
 export const ProtectedRoute = ({children}) => {
-    const {user, loading} = useAuth()
+    const {user, loading} = useContext(AuthContext)
 
     if (loading === true ) {
         return <h1>loading</h1>

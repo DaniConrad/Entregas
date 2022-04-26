@@ -4,7 +4,7 @@ import { db } from '../firebase/config'
 import { addDoc, collection, documentId, getDocs, query, Timestamp, where, writeBatch } from 'firebase/firestore'
 import { FormFail } from '../components/helpers/Alerts/FormFail';
 import { CheckoutFail } from '../components/helpers/CheckoutFail';
-import { useAuth } from '../Context/AuthContext';
+import { AuthContext } from '../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 export const useForm = (initialForm) => {
@@ -12,7 +12,7 @@ export const useForm = (initialForm) => {
   const [values, setValues] = useState(initialForm)
   const [orderId, setOrderId] = useState(null)
   const {cart, totalCart, emptyCart} = useContext(CartContext)
-  const { login } = useAuth()
+  const { login } = useContext(AuthContext)
   const navigate = useNavigate()
 
   const handleInputChange = (e) =>{
@@ -63,7 +63,7 @@ export const useForm = (initialForm) => {
     products.docs.forEach((doc) =>{
       const itemToUpdate = cart.find((item) => item.id === doc.id)
       const dataStock = doc.data().stock;
-
+      
         if (dataStock >= itemToUpdate.Quantity) {
             batch.update(doc.ref, {
               stock: dataStock - itemToUpdate.Quantity

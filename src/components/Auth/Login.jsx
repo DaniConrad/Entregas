@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
-import { useAuth } from '../../Context/AuthContext'
 import { useForm } from '../../hooks/useForm'
 
 export const Login = () => {
@@ -11,8 +10,7 @@ export const Login = () => {
     }
 
     const {handleInputChange, handleValidateLogin} = useForm(initialForm)
-    const { user } = useAuth()
-
+    
   return (
     <Container>
         <Form onSubmit={handleValidateLogin}>
@@ -33,8 +31,6 @@ export const Login = () => {
                     placeholder="Password" 
                     name='password'
                     onChange={handleInputChange}
-
-
                 />
             </Form.Group>
             <Button variant="primary" type="submit">
