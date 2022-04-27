@@ -4,6 +4,7 @@ import { db } from '../../firebase/config';
 import {collection, documentId, getDocs, query, where, updateDoc } from 'firebase/firestore'
 import { modifiedAlertPanel } from "../helpers/Alerts/PanelManager/modifiedAlertPanel";
 import { unModifiedAlertPanel } from "../helpers/Alerts/PanelManager/unModifiedAlertPanel";
+import '../../App.css'
 
 const StockManagerItem = ({product}) =>{
     
@@ -53,9 +54,11 @@ const StockManagerItem = ({product}) =>{
                         <Card.Text className="d-flex justify-content-center text-light">
                         Stock disponible: {product.stock}
                         </Card.Text>
-                        <input type="text" onChange={handleInput} />
-                        <Button onClick={() => handleQuantity(product, 'plus')}>+</Button>
-                        <Button onClick={() => handleQuantity(product)}>-</Button>
+                        <input type="number" onChange={handleInput} placeholder='Cantidad a modificar.'/>
+                        <div className="d-flex justify-content-center">
+                            <Button onClick={() => handleQuantity(product, 'plus')} className='m-2'>Agregar</Button>
+                            <Button onClick={() => handleQuantity(product)} className='m-2'>Quitar</Button>
+                        </div>
                     </Container>
                 </Card.Body>
             </Card> 

@@ -12,7 +12,7 @@ export const Login = () => {
     const {handleInputChange, handleValidateLogin} = useForm(initialForm)
     
   return (
-    <Container>
+    <Container className='d-flex align-items-center flex-column'>
         <Form onSubmit={handleValidateLogin}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>

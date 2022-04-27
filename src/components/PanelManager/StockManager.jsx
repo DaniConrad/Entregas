@@ -18,7 +18,7 @@ export const StockManager = () => {
     
     
   return (
-    <div className='d-flex justify-content-center'>
+    <div className='d-flex justify-content-center flex-wrap'>
         {items.map((product) => <StockManagerItem 
                                   product={product}  
                                   key={product.id}
