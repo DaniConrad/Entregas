@@ -135,3 +135,11 @@
   
   
   /* End Checkout order window */
+
+  /* Login  */
+
+  .login-form-input{
+    width: 18rem!important;
+  }
+
+   /* End of Login  */

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import CartIcon from '../CartWidget/CartIcon';
+import CartIcon from '../Cart/CartWidget/CartIcon';
 import Logo from '../icons/Logo';
 
 
@@ -26,9 +26,6 @@ const NavbarD = () => {
             </Navbar>
       </header>
 )};
-    
-// le pasan un nav.link as={Link} para los link de router
-
 
 
 export default NavbarD;

@@ -1,22 +1,23 @@
 import React, { useContext } from 'react'
+import { Spinner } from 'react-bootstrap';
 import { AuthContext } from '../../Context/AuthContext'
 import { StockManager } from './StockManager';
 
 const PanelManager = () => {
 
-  const { user, logout, loading } = useContext(AuthContext)
+  const { logout, loading } = useContext(AuthContext)
   const handleLogout = async() =>{
     await logout()
   }
 
   if (loading === true ) {
-    return <h1>loading</h1>
+    return <Spinner animation="border" variant="light" />
   }
   
   return (
-    <div>
-       <h2>Hola {user.email}</h2> 
-       <button onClick={handleLogout}>Logout</button>
+    <div className='mx-2 text-light'>
+       <h2>Hola administrador</h2> 
+       <button onClick={handleLogout} className='btn btn-secondary'>Cerrar sesión</button>
        <StockManager />
     </div>
   )

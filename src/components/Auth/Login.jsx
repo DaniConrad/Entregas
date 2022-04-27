@@ -15,26 +15,28 @@ export const Login = () => {
     <Container className='d-flex align-items-center flex-column'>
         <Form onSubmit={handleValidateLogin}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+                <Form.Label className='text-light'>Email</Form.Label>
                 <Form.Control 
                     type="email" 
-                    placeholder="Enter email" 
+                    placeholder="Ingresa el email" 
                     onChange={handleInputChange}
                     name='email'
+                    className='login-form-input'
                 />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label className='text-light'>Contraseña</Form.Label>
                 <Form.Control 
                     type="password" 
-                    placeholder="Password" 
+                    placeholder="Contraseña" 
                     name='password'
                     onChange={handleInputChange}
+                    className='login-form-input'
                 />
             </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
+            <Button className='btn-standard' type="submit">
+                Ingresar
             </Button>
         </Form>
     </Container>

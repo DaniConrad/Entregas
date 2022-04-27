@@ -28,13 +28,17 @@ const StockManagerItem = ({product}) =>{
                 updateDoc(doc.ref, {
                     stock:  dataStock + Number(quantity)
                })
-               if (quantity === 0) {
+               if (quantity <= 0 ) {
                 unModifiedAlertPanel()
                    return
                }
                modifiedAlertPanel()
                setQuantity(0)
             }else{
+                if (quantity <= 0 ) {
+                    unModifiedAlertPanel()
+                       return
+                   }
                     updateDoc(doc.ref, {
                          stock: dataStock - quantity
                     })
