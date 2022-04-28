@@ -1,14 +1,22 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { LimitStock } from "../components/helpers/Alerts/LimitStock"
+import { useStorage } from "../hooks/useStorage"
 
 export const CartContext = createContext()
 
 export const CartProvider = ({children}) => {
 
-    const [cart, setCart] = useState([])
+  const [ cart, setCart ] = useState([])
+  const { saveStorage, getStorage } = useStorage()
+
+  useEffect(()=>{
+      setCart(getStorage('cart'))
+   }, [getStorage]);
 
   const addItem = (item) =>{
-    setCart([...cart, item])
+    let newData = [...cart, item]
+    saveStorage('cart', newData)
+    setCart(newData)
   }
 
   const plusItemInCart = (id) =>{
@@ -16,10 +24,11 @@ export const CartProvider = ({children}) => {
     if (valide.Quantity === valide.stock) {
         LimitStock(valide.stock)
     }else{
-      valide.Quantity++
-    setCart([...cart])
-    }
-  } 
+            valide.Quantity++
+            setCart([...cart])
+            saveStorage('cart', cart)
+         }
+  }
 
   const dashItemInCart = (id) =>{
     const valide = cart.find((prod) => prod.id === id)
@@ -29,6 +38,7 @@ export const CartProvider = ({children}) => {
       valide.Quantity--
     }
     setCart([...cart])
+    saveStorage('cart', cart)
   } 
 
   const cartQuantity = () => {
@@ -36,7 +46,9 @@ export const CartProvider = ({children}) => {
   }
 
   const removeItem =  (id) => {
-      setCart( cart.filter((prod) => prod.id !==id) )
+      let newData = cart.filter((prod) => prod.id !==id)
+      saveStorage('cart', newData)
+      setCart(newData)
   }
 
   const totalCart = () => {

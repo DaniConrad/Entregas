@@ -10,11 +10,11 @@ const StockManagerItem = ({product}) =>{
     
     const [quantity, setQuantity] = useState(0)
 
-        const handleInput = (e) => {
-            setQuantity(
-                e.target.value
-              )
-        }
+    const handleInput = (e) => {
+        setQuantity(
+            e.target.value
+          )
+    }
 
     const handleQuantity = async (product, operation) =>{
         
@@ -35,9 +35,11 @@ const StockManagerItem = ({product}) =>{
                modifiedAlertPanel()
                setQuantity(0)
             }else{
-                if (quantity <= 0 ) {
+                if (quantity <= 0 || quantity > dataStock) {
                     unModifiedAlertPanel()
                        return
+                   }else{
+                       
                    }
                     updateDoc(doc.ref, {
                          stock: dataStock - quantity
