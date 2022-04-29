@@ -8,9 +8,17 @@ export const useStorage = () => {
         return JSON.parse(localStorage.getItem(key));
       }
 
+      const checkStorage = ()  =>{
+        const storage = getStorage('cart')
+        if (storage === null) {
+          saveStorage('cart', [])
+        }
+      }
+
       return{
         saveStorage,
         getStorage,
+        checkStorage,
       }
 
 }

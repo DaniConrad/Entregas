@@ -7,15 +7,13 @@ export const CartContext = createContext()
 export const CartProvider = ({children}) => {
 
   const [ cart, setCart ] = useState([])
-  const { saveStorage, getStorage } = useStorage()
+  const { saveStorage, getStorage, checkStorage } = useStorage()
+
+  checkStorage()
 
   useEffect(()=>{
       setCart(getStorage('cart'))
    }, []);
-
-   if (cart.length === 0) {
-    saveStorage('cart', [])
-   }
 
   const addItem = (item) =>{
     let newData = [...cart, item]
