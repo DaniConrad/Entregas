@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom'
 import Logo from '../icons/Logo'
 
 const Footer = () => {
+
+    
+
+
   return (
       <footer className='bg-dark'>
         <Container className='d-flex flex-row flex-wrap justify-content-around'>
-            <div className='my-3'>
+            <div className='footer-logo-container my-3 '>
                 <Link to='/'><Logo /></Link>
             </div>
-            <div>       
+            <div className='footer-nav-container'>       
             <h4 className='text-color-standard my-1'>Navegación</h4>
                     <Nav className="d-flex flex-column">
                         <Nav.Link as={Link} to="/products" className='text-color-standard'>Productos</Nav.Link>
@@ -19,7 +23,7 @@ const Footer = () => {
                         <Nav.Link as={Link} to="/login" className='text-color-standard'>Privado</Nav.Link>
                     </Nav>
             </div>  
-            <div>
+            <div className='footer-media-container'>
                 <h4 className='text-color-standard my-1'>Redes</h4>
                 <Nav.Link target={'_blank'} href='https://www.instagram.com' className='text-color-standard'>Instagram</Nav.Link>
                 <Nav.Link target={'_blank'} href='https://www.facebook.com' className='text-color-standard'>Facebook</Nav.Link>

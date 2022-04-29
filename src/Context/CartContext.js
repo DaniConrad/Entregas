@@ -11,7 +11,11 @@ export const CartProvider = ({children}) => {
 
   useEffect(()=>{
       setCart(getStorage('cart'))
-   }, [getStorage]);
+   }, []);
+
+   if (cart.length === 0) {
+    saveStorage('cart', [])
+   }
 
   const addItem = (item) =>{
     let newData = [...cart, item]
