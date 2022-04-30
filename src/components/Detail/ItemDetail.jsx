@@ -71,7 +71,6 @@ export const ItemDetail = ({productDetail}) => {
             </div>
         </div>
         <button className='btn btn-secondary m-3' onClick={handleNavigate}>Volver</button>
-
     </div>
   )
 }

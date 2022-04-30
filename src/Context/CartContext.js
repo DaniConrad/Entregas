@@ -9,9 +9,8 @@ export const CartProvider = ({children}) => {
   const [ cart, setCart ] = useState([])
   const { saveStorage, getStorage, checkStorage } = useStorage()
 
-  checkStorage()
-
   useEffect(()=>{
+      checkStorage()
       setCart(getStorage('cart'))
    }, []);
 

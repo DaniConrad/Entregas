@@ -16,7 +16,7 @@ export const unModifiedAlertPanel = () =>{
           
           Toast.fire({
             icon: 'error',
-            title: 'Modifica algún valor de este artículo'
+            title: 'Modifica algún valor, no puede ser negativo.'
           })
 
     };

@@ -5,7 +5,18 @@ import '../../App.css'
 
 
 export const ItemCount = ({stock, id, Quantity, SetQuantity, onAdd}) => {
-    
+
+    const [btnOn, btnDisabled] = useState(false)
+
+    useEffect( () =>{
+             if (stock === 0) {
+                 btnDisabled(true)
+                }else{
+                     btnDisabled(false)
+             }
+        }, [stock])
+
+
     const plusItem = (prop) =>{
         if (prop === '+') {
             if (Quantity === stock || stock === 0) {
@@ -24,18 +35,6 @@ export const ItemCount = ({stock, id, Quantity, SetQuantity, onAdd}) => {
             }
         }
         }
-
-        //Disable and enable addCart button with the stock disponibility
-        const [btnOn, btnDisabled] = useState(false)
-        useEffect( () =>{
-             if (stock === 0) {
-                 btnDisabled(true)
-                }else{
-                     btnDisabled(false)
-             }
-        }, [stock])
-
-        //CAMBIAR EL DISABLED POR UN CONDICIONAL && 
 
   return (
     <Container className="d-flex align-items-center flex-column personalized-width">

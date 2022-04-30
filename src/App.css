@@ -113,8 +113,12 @@
 
 
   /* Checkout form */
-  .standard-form{
+  .standard-form-desktop{
     width: 50% !important;
+  }
+
+  .standard-form-mobile{
+    width: 85% !important;
   }
 
   /* End of Checkout form */
@@ -163,9 +167,3 @@
 }
 
 /* End of Cards  */
-
-/* Footer  */
-
-
-
-/* End of Footer  */

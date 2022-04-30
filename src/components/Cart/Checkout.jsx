@@ -1,13 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import { Navigate, Link } from 'react-router-dom'
 import { CartContext } from '../../Context/CartContext'
 import '../../App.css'
 import { useForm } from '../../hooks/useForm'
+import { useResponsive } from '../../hooks/useResponsive'
 
 const Checkout = () => {
 
   const {cart} = useContext(CartContext)
+  const {responsive, checkViewport} = useResponsive()
+
+  useEffect(() => {
+    checkViewport(470)
+  }, [checkViewport])
 
   const initialForm = {
       name: '',
@@ -29,13 +35,11 @@ const Checkout = () => {
                                 <p className=" mb-0 text-light fs-5">"{orderId}"</p>
                               </div>  
                               <div className="col-lg-4 col-md-4  col-12 d-flex justify-content-center">
-                                <img src="https://i.ibb.co/FDj5xxB/3414323.png" className="checkout-order-img" />
+                                <img src="https://i.ibb.co/FDj5xxB/3414323.png" className="checkout-order-img" alt='beers'/>
                               </div>
                             </div>
                           </div>
                         </div>
-
-
               <Link to='/'><button className='btn btn-secondary my-2'>Volver</button></Link>
            </Container>
   }
@@ -50,7 +54,7 @@ const Checkout = () => {
       <hr className='text-light'/>
       <form onSubmit={handleValidate} className='d-flex align-items-center flex-column'>
         <input 
-          className='form-control mb-1 standard-form' 
+          className={`form-control mb-1 standard-form ${responsive ? 'standard-form-mobile' : 'standard-form-desktop'}`}
           type={'text'} 
           value={values.name} 
           onChange={handleInputChange}
@@ -58,7 +62,7 @@ const Checkout = () => {
           placeholder='Ingresa tu Nombre y Apellido.'
         />
         <input 
-          className='form-control mb-1 standard-form' 
+          className={`form-control mb-1 standard-form ${responsive ? 'standard-form-mobile' : 'standard-form-desktop'}`} 
           type={'email'} 
           value={values.email} 
           name='email'
@@ -66,7 +70,7 @@ const Checkout = () => {
           onChange={handleInputChange}
         />
         <input 
-          className='form-control mb-1 standard-form' 
+          className={`form-control mb-1 standard-form ${responsive ? 'standard-form-mobile' : 'standard-form-desktop'}`} 
           type={'text'} 
           value={values.tel} 
           onChange={handleInputChange}

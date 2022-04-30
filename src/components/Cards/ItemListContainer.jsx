@@ -31,7 +31,6 @@ const ItemListContainer = () => {
         <Container className="d-flex justify-content-center">
             {loading ? <Spinner animation="border" variant="light" /> : ''}
         </Container>
-
     <ItemList items={items}/>
     </div>
         

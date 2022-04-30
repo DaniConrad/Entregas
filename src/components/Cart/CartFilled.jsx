@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import {  useNavigate, Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 import { CartContext } from '../../Context/CartContext'
 import { BsFillTrashFill, BsFillDashCircleFill, BsFillPlusCircleFill } from 'react-icons/bs'
 import '../../App.css'
+import { useResponsive } from '../../hooks/useResponsive';
 
 export const CartFilled = () => {
 
@@ -15,6 +16,11 @@ export const CartFilled = () => {
         navigate(-1)
     }
 
+    const { responsive, checkViewport } = useResponsive()
+
+    useEffect(() => {
+      checkViewport(770)
+    }, [checkViewport])
 
   return (
     <Container>
@@ -23,12 +29,13 @@ export const CartFilled = () => {
            {
            cart.map((item) => (
                <div className='d-flex justify-content-center 'key={item.id}>
-                   <div className='personal-bg-cart d-flex justify-content-center px-2 my-2 flex-wrap'>
+                   <div className={`personal-bg-cart d-flex justify-content-center px-2 my-2 flex-wrap ${responsive ? 'flex-column px-5' : ''}`}>
                      <div className='d-flex justify-content-center'>
                        <img src={item.img} alt={item.name} className="cart-img"/>
                      </div>
-                         <div className='d-flex align-items-center flex-wrap'>
-                           <h4   className='text-light m-2 text-center' style={{width: '10rem'}}>{item.name}</h4>
+                         <div className={`d-flex align-items-center flex-wrap ${responsive ? 'flex-column' : ''}`}>
+                           <h4 className='text-light m-2 text-center' style={{width: '10rem'}}>{item.name}</h4>
+                          <div className='d-flex'>
                            <Button onClick={() => dashItemInCart(item.id)} className='bg-transparent border-0 d-flex align-items-center justify-content-center' >
                              <BsFillDashCircleFill 
                                    color='#000'
@@ -40,6 +47,7 @@ export const CartFilled = () => {
                                  color='#000'
                                 />
                            </Button>
+                           </div>
                           <p className='text-light m-2 text-center' style={{width: '7rem'}}>Precio: $ {item.price}</p>
                          <button onClick={() => removeItem(item.id)} className='me-2 btn'>
                               <BsFillTrashFill 
@@ -49,7 +57,8 @@ export const CartFilled = () => {
                                title={'Eliminar artículo'}
                                 />
                          </button> 
-                      </div>
+                        </div>
+                      
                   </div>
                 </div>
             ))

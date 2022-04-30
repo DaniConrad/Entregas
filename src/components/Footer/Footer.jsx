@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Nav} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Logo from '../icons/Logo'
-
+import { useResponsive } from '../../hooks/useResponsive'
 const Footer = () => {
 
+  const {responsive, checkViewport} = useResponsive()
+    
+  useEffect(() => {
+    checkViewport(470)
+  }, [checkViewport])
     
 
 
   return (
       <footer className='bg-dark'>
-        <Container className='d-flex flex-row flex-wrap justify-content-around'>
+        <Container className={`d-flex flex-wrap  ${responsive ? 'flex-column align-items-center' : 'flex-row justify-content-around'}`}>
             <div className='footer-logo-container my-3 '>
                 <Link to='/'><Logo /></Link>
             </div>
@@ -24,10 +29,12 @@ const Footer = () => {
                     </Nav>
             </div>  
             <div className='footer-media-container'>
-                <h4 className='text-color-standard my-1'>Redes</h4>
-                <Nav.Link target={'_blank'} href='https://www.instagram.com' className='text-color-standard'>Instagram</Nav.Link>
-                <Nav.Link target={'_blank'} href='https://www.facebook.com' className='text-color-standard'>Facebook</Nav.Link>
-                <Nav.Link target={'_blank'} href='https://www.tiktok.com' className='text-color-standard'>TikTok</Nav.Link>
+                <h4 className={`text-color-standard my-1 ${responsive ? 'text-center' : ''}`}>Redes</h4>
+                <div className={`d-flex ${responsive ? 'flex-row' : 'flex-column'}`}>
+                    <Nav.Link target={'_blank'} href='https://www.instagram.com' className='text-color-standard'>Instagram</Nav.Link>
+                    <Nav.Link target={'_blank'} href='https://www.facebook.com' className='text-color-standard'>Facebook</Nav.Link>
+                    <Nav.Link target={'_blank'} href='https://www.tiktok.com' className='text-color-standard'>TikTok</Nav.Link>
+                </div>
             </div>
         </Container>
         <hr className='text-light m-0'/>

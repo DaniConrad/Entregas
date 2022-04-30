@@ -8,7 +8,7 @@ import Item from './Item'
   return (
     <div>
       <Container className='d-flex justify-content-center flex-wrap my-3'>
-      <Filter />
+        <Filter />
         {items.map((product) => <Item product={product} key={product.id}/>)}
       </Container>
     </div>
